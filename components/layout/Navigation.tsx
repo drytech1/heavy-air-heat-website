@@ -24,7 +24,7 @@ export default function Navigation() {
               <img 
                 src="/logo.png" 
                 alt="Heavy Air and Heat Logo" 
-                className="h-12 w-16"
+                className="h-16 w-auto"
               />
               <div className="ml-4">
                 <div className="text-xl font-bold text-gray-900"></div>
