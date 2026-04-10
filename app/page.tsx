@@ -16,7 +16,7 @@ export default function Home() {
               />
               <div className="ml-4">
                 <div className="text-xl font-bold text-gray-900"></div>
-                <div className="text-sm text-gray-600">HVAC Services</div>
+                <div className="text-sm text-gray-600"></div>
               </div>
             </div>
 
