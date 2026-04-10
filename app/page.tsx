@@ -3,44 +3,34 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-        {/* Logo Section */}
-<div className="flex justify-center mb-8">
-  <div className="bg-white rounded-2xl shadow-xl p-6">
-    <Image
-      src="/logo.png"  // or /logo.svg, /logo.jpg
-      alt="Heavy Air and Heat Logo"
-      width={300}      // Adjust based on your logo size
-      height={100}     // Adjust based on your logo size
-      className="h-16 w-auto"  // This maintains aspect ratio
-      priority         // Loads logo first
-    />
-  </div>
-</div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Heavy Air & Heat
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
-              Commercial-Grade HVAC Solutions Since 1975
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+15551234567"
-                className="bg-white text-primary-700 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg inline-flex items-center justify-center"
-              >
-                <Phone className="h-6 w-6 mr-3" />
-                24/7 Emergency: (555) 123-4567
-              </a>
-              <button className="bg-accent-600 hover:bg-accent-700 text-white font-bold py-4 px-8 rounded-lg text-lg">
-                Request Service
-              </button>
+      {/* Header with Left Logo */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo on LEFT */}
+            <div className="flex items-center">
+              <img 
+                src="/logo.png" 
+                alt="Heavy Air and Heat Logo" 
+                className="h-12 w-auto"
+              />
+              <div className="ml-4">
+                <div className="text-xl font-bold text-gray-900">Heavy Air & Heat</div>
+                <div className="text-sm text-gray-600">HVAC Services</div>
+              </div>
             </div>
+
+            {/* Emergency Contact on RIGHT */}
+            <a
+              href="tel:+15551234567"
+              className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg inline-flex items-center"
+            >
+              <Phone className="h-5 w-5 mr-2" />
+              24/7 Emergency
+            </a>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* Features */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
