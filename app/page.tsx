@@ -15,7 +15,7 @@ export default function Home() {
                 className="h-12 w-auto"
               />
               <div className="ml-4">
-                <div className="text-xl font-bold text-gray-900">Heavy Air & Heat, Inc.</div>
+                <div className="text-xl font-bold text-gray-900"></div>
                 <div className="text-sm text-gray-600">HVAC Services</div>
               </div>
             </div>
