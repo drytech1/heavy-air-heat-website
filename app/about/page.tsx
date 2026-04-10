@@ -38,7 +38,7 @@ export default function AboutPage() {
                 remain unchanged.
               </p>
               <p>
-                Today, under the leadership of Rou Casas, we continue to uphold 
+                Today, under the leadership of Roy Casas, we continue to uphold 
                 the standards of excellence that have made us a trusted name in HVAC services 
                 for over five decades.
               </p>
@@ -170,4 +170,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <
+      <Footer />
+    </div>
+  )
+}
