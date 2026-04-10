@@ -1,9 +1,18 @@
+import Hero from '@/components/sections/Hero'
+import ServicesOverview from '@/components/sections/ServicesOverview'
+// Import other sections as you add them
+
 export default function Home() {
   return (
-    <div>
-      <h1>Heavy Air and Heat, Inc.</h1>
-      <p>Professional HVAC Services</p>
-      <p>Emergency: (555) 123-4567</p>
-    </div>
+    <>
+      <Hero />
+      <ServicesOverview />
+      {/* Add other sections here:
+          - ServiceArea
+          - WhyChooseUs  
+          - Testimonials
+          - ContactForm
+      */}
+    </>
   )
 }
