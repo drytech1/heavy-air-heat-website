@@ -1,5 +1,3 @@
-import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } from 'lucide-react'
-import Image from 'next/image'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } from 'lucide-react'
