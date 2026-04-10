@@ -58,7 +58,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Contact Heavy Air & Heat
+              Contact Heavy Air & Heat, Inc.
             </h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90">
               Get in touch for emergency service, estimates, or general inquiries
@@ -126,8 +126,8 @@ export default function ContactPage() {
                   <div>
                     <div className="font-semibold text-gray-900">Address</div>
                     <div className="text-gray-700">
-                      123 HVAC Drive<br />
-                      Corpus Christi, TX
+                      4109 Beard Drive<br />
+                      Corpus Christi, TX 78413
                     </div>
                   </div>
                 </div>
@@ -323,9 +323,9 @@ export default function ContactPage() {
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div className="h-96 bg-gray-200 flex items-center justify-center">
               <div className="text-center">
-                <MapPin className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <div className="text-gray-700 font-semibold">123 HVAC Drive, Corpus Christi, TX</div>
-                <div className="text-gray-600 mt-2">Map integration available with Google Maps API</div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5823.436098104245!2d-97.41265292295768!3d27.695647976189356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8668f583ffffffff%3A0x1ef24b491d7fad85!2sHeavy%20Air%20%26%20Heat%20Inc!5e1!3m2!1sen!2sus!4v1775859729108!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div className="text-gray-700 font-semibold">4109 Beard Drive, Corpus Christi, TX 78413</div>
+                <div className="text-gray-600 mt-2">I</div>
               </div>
             </div>
           </div>
