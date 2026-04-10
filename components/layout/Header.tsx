@@ -43,11 +43,11 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="tel:+15551234567"
+              href="tel:+13613348023"
               className="flex items-center text-sm font-semibold text-accent-700 hover:text-accent-800"
             >
               <Phone className="h-4 w-4 mr-2" />
-              (555) 123-4567
+              (361) 334-8023
             </a>
           </div>
 
@@ -82,12 +82,12 @@ export default function Header() {
                 </Link>
               ))}
               <a
-                href="tel:+15551234567"
+                href="tel:+13613348023"
                 className="flex items-center justify-center py-2 text-base font-semibold text-accent-700 hover:text-accent-800"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Phone className="h-5 w-5 mr-2" />
-                (555) 123-4567
+                (361) 334-8023
               </a>
             </div>
           </div>
