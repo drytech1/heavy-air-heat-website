@@ -47,11 +47,11 @@ export default function Hero() {
               </Link>
               
               <a
-                href="tel:+15551234567"
+                href="tel:+13613348023"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary-600 text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors duration-200"
               >
                 <Phone className="h-5 w-5 mr-3" />
-                Emergency: (555) 123-4567
+                Emergency: (361) 334-8023
               </a>
             </div>
 
@@ -104,4 +104,17 @@ export default function Hero() {
           <div className="py-3 flex flex-col sm:flex-row items-center justify-between gap-2">
             <div className="flex items-center">
               <Phone className="h-5 w-5 mr-3" />
-              <span className="font-semibold">24/7 EMERGENCY
+              <span className="font-semibold">24/7 EMERGENCY SERVICE:</span>
+              <a href="tel:+13613348023" className="ml-2 font-bold hover:underline">
+                (361) 334-8023
+              </a>
+            </div>
+            <div className="text-sm opacity-90">
+              No extra charge for nights, weekends, or holidays
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
