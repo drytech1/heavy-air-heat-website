@@ -317,20 +317,35 @@ export default function ContactPage() {
       </div>
 
       {/* Map Section */}
-      <div className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Find Our Location</h2>
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div className="h-96 bg-gray-200 flex items-center justify-center">
-              <div className="text-center">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5823.436098104245!2d-97.41265292295768!3d27.695647976189356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8668f583ffffffff%3A0x1ef24b491d7fad85!2sHeavy%20Air%20%26%20Heat%20Inc!5e1!3m2!1sen!2sus!4v1775859729108!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div className="text-gray-700 font-semibold">4109 Beard Drive, Corpus Christi, TX 78413</div>
-                <div className="text-gray-600 mt-2">I</div>
-              </div>
-            </div>
+<div className="bg-gray-50 py-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Find Our Location</h2>
+    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="h-96">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5823.436098104245!2d-97.41265292295768!3d27.695647976189356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8668f583ffffffff%3A0x1ef24b491d7fad85!2sHeavy%20Air%20%26%20Heat%20Inc!5e1!3m2!1sen!2sus!4v1775859729108!5m2!1sen!2sus"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Heavy Air and Heat Location"
+          className="w-full h-full"
+        />
+      </div>
+      <div className="p-6 bg-white">
+        <div className="flex items-center justify-center">
+          <MapPin className="h-6 w-6 text-primary-600 mr-3" />
+          <div>
+            <div className="font-bold text-gray-900">Heavy Air & Heat, Inc.</div>
+            <div className="text-gray-600">4109 Beard Drive, Corpus Christi, TX 78413</div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
       {/* CTA Section */}
       <div className="bg-primary-700 text-white py-16">
