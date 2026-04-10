@@ -13,7 +13,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About Heavy Air & Heat
+              About Heavy Air & Heat, Inc.
             </h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90">
               Family-owned HVAC excellence since 1975
@@ -29,7 +29,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
             <div className="space-y-4 text-gray-600">
               <p>
-                Founded in 1975 by John Heavy, Heavy Air & Heat began as a small family business 
+                Founded in 1975 by Roy Casas, Heavy Air & Heat began as a small family business 
                 with a single service truck and a commitment to honest, reliable HVAC service.
               </p>
               <p>
@@ -38,7 +38,7 @@ export default function AboutPage() {
                 remain unchanged.
               </p>
               <p>
-                Today, under the leadership of John's son, Michael Heavy, we continue to uphold 
+                Today, under the leadership of Rou Casas, we continue to uphold 
                 the standards of excellence that have made us a trusted name in HVAC services 
                 for over five decades.
               </p>
@@ -46,11 +46,11 @@ export default function AboutPage() {
             
             <div className="mt-8 grid grid-cols-2 gap-6">
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary-700">50+</div>
+                <div className="text-4xl font-bold text-primary-700">40+</div>
                 <div className="text-gray-600">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary-700">10,000+</div>
+                <div className="text-4xl font-bold text-primary-700">327+</div>
                 <div className="text-gray-600">Satisfied Customers</div>
               </div>
               <div className="text-center">
