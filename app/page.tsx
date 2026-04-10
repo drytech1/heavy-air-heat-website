@@ -1,5 +1,14 @@
 import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } from 'lucide-react'
 import Image from 'next/image'
+import Navigation from '@/components/layout/Navigation'
+import Footer from '@/components/layout/Footer'
+import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } from 'lucide-react'
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Add Navigation Here */}
+      <Navigation />
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
