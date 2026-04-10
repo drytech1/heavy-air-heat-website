@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import Navigation from '@/components/layout/Navigation'
+import Footer from '@/components/layout/Footer'
 import { Phone, Mail, MapPin, Clock, MessageSquare, CheckCircle, AlertCircle } from 'lucide-react'
 
 export default function ContactPage() {
@@ -49,12 +51,14 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <Navigation />
+      
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Contact Heavy Air & Heat, Inc.
+              Contact Heavy Air & Heat
             </h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90">
               Get in touch for emergency service, estimates, or general inquiries
@@ -80,7 +84,7 @@ export default function ContactPage() {
                       href="tel:+13613348023" 
                       className="text-2xl font-bold text-red-600 hover:text-red-700 block mb-2"
                     >
-                      (555) 123-4567
+                      (361) 334-8023
                     </a>
                     <p className="text-gray-700">
                       For urgent heating or cooling issues, call us anytime - day or night.
@@ -98,7 +102,7 @@ export default function ContactPage() {
                   <div>
                     <div className="font-semibold text-gray-900">Phone</div>
                     <a href="tel:+13613348023" className="text-gray-700 hover:text-primary-600">
-                      (555) 123-4567
+                      (361) 334-8023
                     </a>
                   </div>
                 </div>
@@ -123,7 +127,7 @@ export default function ContactPage() {
                     <div className="font-semibold text-gray-900">Address</div>
                     <div className="text-gray-700">
                       123 HVAC Drive<br />
-                      Corpus Christi, TX 78410
+                      Corpus Christi, TX
                     </div>
                   </div>
                 </div>
@@ -150,7 +154,7 @@ export default function ContactPage() {
                   We proudly serve the following areas:
                 </p>
                 <div className="grid grid-cols-2 gap-2">
-                  {['Springfield', 'Alexandria', 'Arlington', 'Fairfax', 'Vienna', 'McLean', 'Reston', 'Herndon'].map((area, idx) => (
+                  {['Corpus Christi', 'Portland', 'Aransas Pass', 'Rockport', 'Ingleside', 'Sinton', 'Mathis', 'Alice'].map((area, idx) => (
                     <div key={idx} className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
                       <span className="text-gray-700">{area}</span>
@@ -320,7 +324,7 @@ export default function ContactPage() {
             <div className="h-96 bg-gray-200 flex items-center justify-center">
               <div className="text-center">
                 <MapPin className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <div className="text-gray-700 font-semibold">123 HVAC Drive, Corpus Christi, TX 78410</div>
+                <div className="text-gray-700 font-semibold">123 HVAC Drive, Corpus Christi, TX</div>
                 <div className="text-gray-600 mt-2">Map integration available with Google Maps API</div>
               </div>
             </div>
@@ -343,6 +347,8 @@ export default function ContactPage() {
           </a>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
