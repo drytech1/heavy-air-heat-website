@@ -5,6 +5,16 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
+        {/* Logo Banner */}
+<div className="flex justify-center mb-8">
+  <div className="bg-white rounded-2xl shadow-xl p-6 inline-flex items-center">
+    <div className="text-center">
+      <div className="text-4xl font-bold text-primary-700 mb-1">HAH</div>
+      <div className="text-lg font-semibold text-gray-900">Heavy Air & Heat</div>
+      <div className="text-sm text-gray-600 mt-1">HVAC Services</div>
+    </div>
+  </div>
+</div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
