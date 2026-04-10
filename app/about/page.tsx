@@ -1,9 +1,13 @@
+import Navigation from '@/components/layout/Navigation'
+import Footer from '@/components/layout/Footer'
 import { Users, Award, Clock, MapPin, Shield, Heart } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <Navigation />
+      
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -25,7 +29,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
             <div className="space-y-4 text-gray-600">
               <p>
-                Founded in 1975 by Roy Casas, Heavy Air & Heat, Inc. began as a small family business 
+                Founded in 1975 by John Heavy, Heavy Air & Heat began as a small family business 
                 with a single service truck and a commitment to honest, reliable HVAC service.
               </p>
               <p>
@@ -165,6 +169,5 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-    </div>
-  )
-}
+
+      <
