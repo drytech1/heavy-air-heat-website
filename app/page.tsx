@@ -15,14 +15,14 @@ export default function Home() {
                 className="h-12 w-auto"
               />
               <div className="ml-4">
-                <div className="text-xl font-bold text-gray-900">Heavy Air & Heat</div>
+                <div className="text-xl font-bold text-gray-900">Heavy Air & Heat, Inc.</div>
                 <div className="text-sm text-gray-600">HVAC Services</div>
               </div>
             </div>
 
             {/* Emergency Contact on RIGHT */}
             <a
-              href="tel:+15551234567"
+              href="tel:+13613348023"
               className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg inline-flex items-center"
             >
               <Phone className="h-5 w-5 mr-2" />
@@ -90,10 +90,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+15551234567"
+              href="tel:+13613348023"
               className="bg-white text-primary-700 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg"
             >
-              Call Now: (555) 123-4567
+              Call Now: (361) 334-8023
             </a>
             <button className="bg-transparent border-2 border-white hover:bg-white/10 font-bold py-4 px-8 rounded-lg text-lg">
               Get Free Estimate
@@ -108,14 +108,14 @@ export default function Home() {
           <div className="text-center">
             <h3 className="text-2xl font-bold mb-4">Heavy Air & Heat, Inc.</h3>
             <p className="text-gray-400 mb-6">
-              123 HVAC Drive • Springfield, VA 22150 • License #HVAC-12345
+              123 HVAC Drive • Corpus Christi, TX  • License #HVAC-12345
             </p>
             <div className="flex justify-center space-x-6">
-              <a href="tel:+15551234567" className="text-gray-400 hover:text-white">
-                (555) 123-4567
+              <a href="tel:+13613348023" className="text-gray-400 hover:text-white">
+                (361) 334-8023
               </a>
-              <a href="mailto:info@heavyairandheat.com" className="text-gray-400 hover:text-white">
-                info@heavyairandheat.com
+              <a href="mailto:heavyair1@gmail.com" className="text-gray-400 hover:text-white">
+                heavyair1@gmail.com
               </a>
             </div>
           </div>
