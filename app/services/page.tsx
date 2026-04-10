@@ -1,7 +1,7 @@
-import { Thermometer, Wind, Settings, Zap, Home, Wrench, Shield, Clock, CheckCircle } from 'lucide-react'
-import Link from 'next/link'
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
+import { Thermometer, Wind, Settings, Zap, Home, Wrench, Shield, Clock, CheckCircle } from 'lucide-react'
+import Link from 'next/link'
 
 const services = [
   {
@@ -93,6 +93,8 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <Navigation />
+      
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -214,6 +216,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }
