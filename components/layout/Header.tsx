@@ -21,7 +21,7 @@ export default function Header() {
         <div className="flex h-20 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold text-primary-700">
-              Heavy Air & Heat
+              Heavy Air & Heat, Inc.
             </Link>
             <span className="ml-2 text-sm text-secondary-600 hidden sm:inline">
               Commercial & Residential HVAC
