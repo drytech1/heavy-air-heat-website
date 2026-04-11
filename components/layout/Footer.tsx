@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Heavy Air & Heat</h3>
+            <h3 className="text-xl font-bold mb-4">Heavy Air & Heat, Inc.</h3>
             <p className="text-gray-400">
               Professional HVAC services since 1975. Licensed, bonded, and insured.
             </p>
@@ -40,7 +40,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <MapPin className="h-4 w-4 mr-3 text-gray-400" />
-                <span className="text-gray-400">123 HVAC Drive, Springfield, VA 22150</span>
+                <span className="text-gray-400">4109 Beard Drive, Corpus Christi, TX 78413</span>
               </li>
             </ul>
           </div>
@@ -61,7 +61,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
           <p>© {new Date().getFullYear()} Heavy Air & Heat, Inc. All rights reserved.</p>
-          <p className="mt-2">License #HVAC-12345</p>
+          <p className="mt-2">License TACLA28823C</p>
         </div>
       </div>
     </footer>
