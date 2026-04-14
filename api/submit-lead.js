@@ -1,14 +1,10 @@
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ success: false, message: "Method not allowed." });
+    return res.status(405).json({
+      success: false,
+      message: "Method not allowed."
+    });
   }
-
-  console.log({
-    hasToken: !!process.env.AIRTABLE_ACCESS_TOKEN,
-    hasBaseId: !!process.env.AIRTABLE_BASE_ID,
-    tableName: process.env.AIRTABLE_TABLE_NAME,
-    vercelEnv: process.env.VERCEL_ENV
-  });
 
   try {
     const { name, phone, email, service, message } = req.body || {};
@@ -21,8 +17,15 @@ export default async function handler(req, res) {
     }
 
     const airtableToken = process.env.AIRTABLE_ACCESS_TOKEN;
-    const baseId = "apph1kLBnbdiQNLpX/tbloPMkmxKPJ1rUlb/viwOi0z2Ytd1RYVlj";
-const tableName = "Leads";
+    const baseId = process.env.AIRTABLE_BASE_ID;
+    const tableName = process.env.AIRTABLE_TABLE_NAME || "Leads";
+
+    console.log({
+      hasToken: !!airtableToken,
+      hasBaseId: !!baseId,
+      tableName,
+      vercelEnv: process.env.VERCEL_ENV
+    });
 
     if (!airtableToken || !baseId) {
       return res.status(500).json({
@@ -31,9 +34,9 @@ const tableName = "Leads";
       });
     }
 
-    console.log("Airtable URL:", airtableUrl);
-
     const airtableUrl = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
+
+    console.log("Airtable URL:", airtableUrl);
 
     const payload = {
       fields: {
@@ -52,7 +55,7 @@ const tableName = "Leads";
     const airtableResponse = await fetch(airtableUrl, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${airtableToken}`,
+        Authorization: `Bearer ${airtableToken}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
@@ -75,6 +78,8 @@ const tableName = "Leads";
       message: "Lead submitted successfully."
     });
   } catch (error) {
+    console.error("Server error:", error);
+
     return res.status(500).json({
       success: false,
       message: "Server error.",
