@@ -39,16 +39,11 @@ export default async function handler(req, res) {
     console.log("Airtable URL:", airtableUrl);
 
     const payload = {
-      fields: {
-        Name: name,
-        Phone: phone,
-        Email: email || "",
-        "Service Requested": service || "",
-        Message: message || "",
-        Source: "Heavy Air & Heat Landing Page",
-        Status: "New Lead"
-      }
-    };
+  fields: {
+    Name: name,
+    Phone: phone
+  }
+};
 
     console.log("Sending Airtable payload:", JSON.stringify(payload, null, 2));
 
