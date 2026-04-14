@@ -209,8 +209,13 @@
       const result = await response.json();
 
       if (!response.ok || !result.success) {
-  console.error("Server returned:", result);
-  throw new Error(result.message || "Submission failed.");
+  console.error("Full server response:", JSON.stringify(result, null, 2));
+  throw new Error(
+    result.details?.error?.message ||
+    result.details?.error ||
+    result.message ||
+    "Submission failed."
+  );
 }
 
       leadForm.reset();
