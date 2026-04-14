@@ -192,8 +192,8 @@
     const payload = {
       name: form.name.value.trim(),
       phone: form.phone.value.trim(),
-      email: form.email.value.trim(),
-      service_requested: form.service.value.trim(),
+      email: form.email?.value.trim() || "",
+      service_requested: form.service?.value.trim() || "",
       message: form.message.value.trim(),
       source: "Heavy Air & Heat Landing Page",
       created_at: new Date().toISOString()
@@ -208,17 +208,19 @@
         body: JSON.stringify(payload)
       });
 
+      const text = await response.text();
+
       if (!response.ok) {
-        throw new Error("Webhook request failed");
+        throw new Error(`HTTP ${response.status}: ${text}`);
       }
 
       form.reset();
       formMessage.textContent = "Thank you. Your request has been sent.";
       formMessage.style.color = "#7CFFB2";
     } catch (error) {
+      console.error("Form submission error:", error);
       formMessage.textContent = "There was a problem sending your request. Please call us now.";
       formMessage.style.color = "#FF9B9B";
-      console.error(error);
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "Submit Request";
