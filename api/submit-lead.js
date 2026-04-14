@@ -21,8 +21,8 @@ export default async function handler(req, res) {
     }
 
     const airtableToken = process.env.AIRTABLE_ACCESS_TOKEN;
-    const baseId = process.env.AIRTABLE_BASE_ID;
-    const tableName = process.env.AIRTABLE_TABLE_NAME || "Leads";
+    const baseId = "apph1kLBnbdiQNLpX";
+const tableName = "Leads";
 
     if (!airtableToken || !baseId) {
       return res.status(500).json({
