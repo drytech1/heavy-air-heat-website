@@ -4,11 +4,11 @@ export default async function handler(req, res) {
   }
 
   console.log({
-  hasToken: !!process.env.AIRTABLE_ACCESS_TOKEN,
-  hasBaseId: !!process.env.AIRTABLE_BASE_ID,
-  tableName: process.env.AIRTABLE_TABLE_NAME,
-  vercelEnv: process.env.VERCEL_ENV
-});
+    hasToken: !!process.env.AIRTABLE_ACCESS_TOKEN,
+    hasBaseId: !!process.env.AIRTABLE_BASE_ID,
+    tableName: process.env.AIRTABLE_TABLE_NAME,
+    vercelEnv: process.env.VERCEL_ENV
+  });
 
   try {
     const { name, phone, email, service, message } = req.body || {};
@@ -33,27 +33,32 @@ export default async function handler(req, res) {
 
     const airtableUrl = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
 
+    const payload = {
+      fields: {
+        Name: name,
+        Phone: phone,
+        Email: email || "",
+        "Service Requested": service || "",
+        Message: message || "",
+        Source: "Heavy Air & Heat Landing Page",
+        Status: "New Lead"
+      }
+    };
+
+    console.log("Sending Airtable payload:", JSON.stringify(payload, null, 2));
+
     const airtableResponse = await fetch(airtableUrl, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${airtableToken}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        fields: {
-          Name: name,
-          Phone: phone,
-          Email: email || "",
-          "Service Requested": service || "",
-          Message: message || "",
-          Source: "Heavy Air & Heat Landing Page",
-          Status: "New Lead",
-          "Created At": new Date().toISOString()
-        }
-      })
+      body: JSON.stringify(payload)
     });
 
     const airtableData = await airtableResponse.json();
+
+    console.log("Airtable response:", airtableData);
 
     if (!airtableResponse.ok) {
       return res.status(500).json({
