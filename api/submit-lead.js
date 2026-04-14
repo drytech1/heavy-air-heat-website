@@ -31,6 +31,8 @@ export default async function handler(req, res) {
       });
     }
 
+    console.log("Airtable URL:", airtableUrl);
+
     const airtableUrl = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
 
     const payload = {
