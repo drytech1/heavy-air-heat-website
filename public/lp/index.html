@@ -150,9 +150,13 @@
       <form id="leadForm">
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="tel" name="phone" placeholder="Phone Number" required>
+  <input type="email" name="email" placeholder="Email Address">
+  <input type="text" name="service" placeholder="Service Needed (AC Repair, Install, Heating, etc.)">
   <textarea name="message" placeholder="Describe your issue"></textarea>
-  <button class="btn btn-primary">Submit Request</button>
+  <button class="btn btn-primary" type="submit">Submit Request</button>
 </form>
+
+<div id="formMessage" style="margin-top:12px;"></div>
     </div>
   </div>
 </section>
