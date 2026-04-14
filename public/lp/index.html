@@ -179,34 +179,51 @@
     <p>(361) 334-8023</p>
   </div>
   <script>
-document.getElementById("leadForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
+  const form = document.getElementById("leadForm");
+  const formMessage = document.getElementById("formMessage");
 
-  const formData = new FormData(this);
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  const data = {
-    name: formData.get("name"),
-    phone: formData.get("phone"),
-    message: formData.get("message"),
-    source: "HVAC Landing Page"
-  };
+    const submitButton = form.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
 
-  try {
-    await fetch("YOUR_WEBHOOK_URL_HERE", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+    const payload = {
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      email: form.email.value.trim(),
+      service_requested: form.service.value.trim(),
+      message: form.message.value.trim(),
+      source: "Heavy Air & Heat Landing Page",
+      created_at: new Date().toISOString()
+    };
 
-    alert("✅ Request sent! We’ll contact you shortly.");
-    this.reset();
+    try {
+      const response = await fetch("YOUR_AIRTABLE_WEBHOOK_URL", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
 
-  } catch (error) {
-    alert("❌ Something went wrong. Please call instead.");
-  }
-});
+      if (!response.ok) {
+        throw new Error("Webhook request failed");
+      }
+
+      form.reset();
+      formMessage.textContent = "Thank you. Your request has been sent.";
+      formMessage.style.color = "#7CFFB2";
+    } catch (error) {
+      formMessage.textContent = "There was a problem sending your request. Please call us now.";
+      formMessage.style.color = "#FF9B9B";
+      console.error(error);
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit Request";
+    }
+  });
 </script>
 </footer>
 
