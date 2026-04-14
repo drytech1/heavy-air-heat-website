@@ -3,6 +3,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ success: false, message: "Method not allowed." });
   }
 
+  console.log({
+  hasToken: !!process.env.AIRTABLE_ACCESS_TOKEN,
+  hasBaseId: !!process.env.AIRTABLE_BASE_ID,
+  tableName: process.env.AIRTABLE_TABLE_NAME
+});
+
   try {
     const { name, phone, email, service, message } = req.body || {};
 
