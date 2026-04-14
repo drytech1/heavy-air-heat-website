@@ -147,7 +147,7 @@
   <div class="container">
     <div class="card">
       <h3>Request Service</h3>
-      <form id="leadForm" action="/submit-lead.php" method="POST">
+      <form id="leadForm" action="/api/submit-lead" method="POST">
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="tel" name="phone" placeholder="Phone Number" required>
   <input type="email" name="email" placeholder="Email Address">
@@ -155,6 +155,8 @@
   <textarea name="message" placeholder="Describe your issue"></textarea>
   <button class="btn btn-primary" type="submit">Submit Request</button>
 </form>
+
+<div id="formMessage" style="margin-top:12px;font-weight:600;"></div>
 
 <div id="formMessage"></div>
 
@@ -190,15 +192,18 @@
     const submitButton = leadForm.querySelector("button[type='submit']");
     submitButton.disabled = true;
     submitButton.textContent = "Sending...";
-
     formMessage.textContent = "";
 
     try {
       const formData = new FormData(leadForm);
+      const payload = Object.fromEntries(formData.entries());
 
       const response = await fetch(leadForm.action, {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
 
       const result = await response.json();
