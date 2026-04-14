@@ -179,42 +179,33 @@
     <p>(361) 334-8023</p>
   </div>
   <script>
-  const form = document.getElementById("leadForm");
+  const leadForm = document.getElementById("leadForm");
   const formMessage = document.getElementById("formMessage");
 
-  form.addEventListener("submit", async function (e) {
+  leadForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const submitButton = form.querySelector("button[type='submit']");
+    const submitButton = leadForm.querySelector("button[type='submit']");
     submitButton.disabled = true;
     submitButton.textContent = "Sending...";
 
-    const payload = {
-      name: form.name.value.trim(),
-      phone: form.phone.value.trim(),
-      email: form.email?.value.trim() || "",
-      service_requested: form.service?.value.trim() || "",
-      message: form.message.value.trim(),
-      source: "Heavy Air & Heat Landing Page",
-      created_at: new Date().toISOString()
-    };
+    formMessage.textContent = "";
 
     try {
-      const response = await fetch("https://hooks.airtable.com/workflows/v1/genericWebhook/apph1kLBnbdiQNLpX/wflLycPRO7fRxuVXQ/wtrcHt7A4D7qW3OBO", {
+      const formData = new FormData(leadForm);
+
+      const response = await fetch(leadForm.action, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
+        body: formData
       });
 
-      const text = await response.text();
+      const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${text}`);
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Submission failed.");
       }
 
-      form.reset();
+      leadForm.reset();
       formMessage.textContent = "Thank you. Your request has been sent.";
       formMessage.style.color = "#7CFFB2";
     } catch (error) {
