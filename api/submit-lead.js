@@ -6,7 +6,8 @@ export default async function handler(req, res) {
   console.log({
   hasToken: !!process.env.AIRTABLE_ACCESS_TOKEN,
   hasBaseId: !!process.env.AIRTABLE_BASE_ID,
-  tableName: process.env.AIRTABLE_TABLE_NAME
+  tableName: process.env.AIRTABLE_TABLE_NAME,
+  vercelEnv: process.env.VERCEL_ENV
 });
 
   try {
