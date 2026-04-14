@@ -66,12 +66,16 @@ export default async function handler(req, res) {
     console.log("Airtable response:", airtableData);
 
     if (!airtableResponse.ok) {
-      return res.status(500).json({
-        success: false,
-        message: "Airtable rejected the request.",
-        details: airtableData
-      });
-    }
+  console.error("Airtable rejected request:", JSON.stringify(airtableData, null, 2));
+
+  return res.status(500).json({
+    success: false,
+    message: "Airtable rejected the request.",
+    details: airtableData,
+    airtableUrl,
+    tableName
+  });
+}
 
     return res.status(200).json({
       success: true,
