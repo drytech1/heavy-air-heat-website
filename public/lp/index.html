@@ -147,11 +147,11 @@
   <div class="container">
     <div class="card">
       <h3>Request Service</h3>
-      <form id="leadForm">
+      <form id="leadForm" action="/submit-lead.php" method="POST">
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="tel" name="phone" placeholder="Phone Number" required>
   <input type="email" name="email" placeholder="Email Address">
-  <input type="text" name="service" placeholder="Service Needed (AC Repair, Install, Heating, etc.)">
+  <input type="text" name="service" placeholder="Service Needed">
   <textarea name="message" placeholder="Describe your issue"></textarea>
   <button class="btn btn-primary" type="submit">Submit Request</button>
 </form>
