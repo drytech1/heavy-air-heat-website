@@ -40,8 +40,13 @@ const tableName = "tbloPMkmxKPJ1rUlb";
 
     const payload = {
   fields: {
-    Name: name,
-    Phone: phone
+    Name: name || "",
+    Phone: phone || "",
+    Email: email || "",
+    "Service Requested": service || "",
+    Message: message || "",
+    Source: "Heavy Air & Heat Landing Page",
+    Status: "New Lead"
   }
 };
 
