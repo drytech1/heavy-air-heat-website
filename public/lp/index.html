@@ -151,7 +151,15 @@
   <input type="text" name="name" placeholder="Your Name" required>
   <input type="tel" name="phone" placeholder="Phone Number" required>
   <input type="email" name="email" placeholder="Email Address">
-  <input type="text" name="service" placeholder="Service Needed">
+  <select name="service">
+  <option value="">Select a Service</option>
+  <option value="AC Repair">AC Repair</option>
+  <option value="Heating Repair">Heating Repair</option>
+  <option value="Installation">Installation</option>
+  <option value="Maintenance">Maintenance</option>
+  <option value="Emergency Service">Emergency Service</option>
+    <option value="Ultimate Savings Club">Ultimate Savings Club</option>
+</select>
   <textarea name="message" placeholder="Describe your issue"></textarea>
   <button class="btn btn-primary" type="submit">Submit Request</button>
 </form>
