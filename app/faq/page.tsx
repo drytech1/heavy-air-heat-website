@@ -1,88 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Heavy Air and Heat FAQ — Answers on Corpus Christi HVAC services: maintenance plans, commercial HVAC, 24/7 emergency repairs, and indoor air quality solutions.">
-  <title>Heavy Air and Heat FAQ — HVAC Questions &amp;amp; Answers</title>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "name": "Frequently Asked Questions - Heavy Air and Heat",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do you offer preventive maintenance plans or service agreements, and what do they cover?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We offer customizable preventive maintenance and service agreements for residential and commercial systems. Plans typically include scheduled inspections and tune-ups, filter checks, refrigerant and airflow verification, electrical and safety testing, lubrication, thermostat calibration, and documented service records. Agreements provide priority scheduling, help extend equipment life, improve efficiency, and are backed by our 100% Satisfaction Guarantee."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you provide commercial HVAC services (RTU maintenance, chiller service) and can you tailor maintenance programs for large facilities?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We provide commercial HVAC services including RTU maintenance and chiller service. For large facilities we tailor maintenance programs with scheduled preventive maintenance, performance testing, asset inventories, documentation, and coordinated maintenance windows to minimize disruption. Our technicians are licensed, EPA and NATE certified, OSHA trained, and able to coordinate with facility managers for compliance and operational needs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer 24/7 emergency heating and cooling repairs in Corpus Christi, and what is your typical on-site response time?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We provide 24/7 emergency HVAC repair with No Overtime Charges for after-hours service. Our team is available around the clock and most repairs are completed the same day. Licensed and certified technicians perform rapid diagnostics and repairs to restore comfort as quickly as possible."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you provide duct cleaning, sealing, and indoor air quality services in Corpus Christi, including air purifiers and ventilation assessments?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We offer indoor air quality services including air duct cleaning, air purifier installation, humidifier/dehumidifier installation, and ventilation assessments (ERV/HRV systems). We perform IAQ evaluations, recommend appropriate solutions, and integrate equipment with existing HVAC and thermostat controls to improve air quality and system performance."
-      }
-    }
-  ]
+'use client';
+
+import { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+
+const faqData = [
+  {
+    question: "What HVAC services do you provide?",
+    answer: "We provide comprehensive HVAC services including installation, repair, maintenance, and emergency services for heating, ventilation, and air conditioning systems for both residential and commercial properties."
+  },
+  {
+    question: "How quickly can you respond to emergency calls?",
+    answer: "We offer 24/7 emergency service with response times typically within 2 hours for urgent heating or cooling issues in the Corpus Christi area."
+  },
+  {
+    question: "Do you offer maintenance plans?",
+    answer: "Yes, we offer affordable maintenance plans that include regular inspections, cleaning, and priority service to keep your HVAC system running efficiently year-round."
+  },
+  {
+    question: "What areas do you serve?",
+    answer: "We serve Corpus Christi, Portland, Aransas Pass, Rockport, and surrounding areas in Texas."
+  },
+  {
+    question: "Are you licensed and insured?",
+    answer: "Yes, we are fully licensed, bonded, and insured for your protection. All our technicians are certified and undergo regular training."
+  },
+  {
+    question: "Do you offer financing options?",
+    answer: "Yes, we offer flexible financing options to make HVAC services more affordable. Contact us to discuss available payment plans."
+  },
+  {
+    question: "How often should I service my HVAC system?",
+    answer: "We recommend bi-annual service - once in spring for cooling systems and once in fall for heating systems to ensure optimal performance."
+  },
+  {
+    question: "What brands do you work with?",
+    answer: "We work with all major HVAC brands including Carrier, Trane, Lennox, Rheem, and Goodman. We can service, repair, or install any brand."
+  }
+];
+
+export default function FAQPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="container mx-auto px-4">
+        {/* Hero Section */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Find answers to common questions about our HVAC services, pricing, and maintenance plans.
+          </p>
+        </div>
+
+        {/* FAQ Accordion */}
+        <div className="max-w-4xl mx-auto">
+          {faqData.map((faq, index) => (
+            <div key={index} className="mb-4">
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full flex justify-between items-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 text-left"
+              >
+                <span className="text-lg font-semibold text-gray-800">
+                  {faq.question}
+                </span>
+                <span className="ml-4 flex-shrink-0">
+                  {openIndex === index ? (
+                    <ChevronUp className="h-5 w-5 text-blue-600" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-gray-400" />
+                  )}
+                </span>
+              </button>
+              {openIndex === index && (
+                <div className="mt-2 p-6 bg-blue-50 rounded-lg">
+                  <p className="text-gray-700">{faq.answer}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Contact CTA */}
+        <div className="mt-12 text-center">
+          <div className="bg-blue-600 text-white p-8 rounded-2xl max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold mb-4">Still have questions?</h2>
+            <p className="mb-6 text-blue-100">
+              Can't find the answer you're looking for? Our team is here to help.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
+              >
+                Contact Us
+              </a>
+              <a
+                href="tel:3613348023"
+                className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
+              >
+                Call Now: (361) 334-8023
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
-  </script>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-      color: #333;
-    }
-    h1, h2, h3 { color: #1a1a1a; margin-top: 1.5em; }
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.25rem; }
-    p { margin-bottom: 1em; }
-    ul, ol { margin-bottom: 1em; padding-left: 2em; }
-    a { color: #1976d2; }
-  </style>
-</head>
-<body>
-  <article>
-    <h1>Heavy Air and Heat FAQ — HVAC Questions &amp;amp; Answers</h1>
-    <h2>Heavy Air and Heat — Frequently Asked Questions</h2>
-<p>At Heavy Air and Heat we answer common HVAC questions about service plans, commercial work, emergency response, and indoor air quality for Corpus Christi customers. Below are concise, extractable answers designed to help you understand our capabilities and guarantees.</p>
-
-<h3>Do you offer preventive maintenance plans or service agreements, and what do they cover?</h3>
-<p>Yes. We offer preventive maintenance and service agreements that are customizable to residential and commercial systems. Typical plan components include scheduled inspections and tune-ups, filter checks and basic filter replacement guidance, refrigerant level and airflow verification, electrical and safety control testing, lubrication of moving parts, thermostat calibration, and documented service records. Plans provide priority scheduling and help extend equipment life while improving efficiency; service agreements are backed by our 100% Satisfaction Guarantee and are designed to reduce emergency breakdowns and same-day repair needs.</p>
-
-<h3>Do you provide commercial HVAC services (RTU maintenance, chiller service) and can you tailor maintenance programs for large facilities?</h3>
-<p>Yes. We provide commercial HVAC services including rooftop unit (RTU) maintenance and chiller service. For large facilities we develop tailored maintenance programs that include scheduled preventive maintenance, RTU and chiller inspections, refrigerant and oil analysis, performance testing, asset inventories and documentation, and coordinated maintenance windows to minimize operational disruption. Our technicians are licensed, EPA and NATE certified, OSHA trained, and able to work with facility managers to meet compliance and operational goals.</p>
-
-<h3>Do you offer 24/7 emergency heating and cooling repairs in Corpus Christi, and what is your typical on-site response time?</h3>
-<p>Yes. We provide 24/7 emergency HVAC repair with No Overtime Charges for after-hours emergency calls. Our team is available around the clock and most repairs are completed the same day. Technicians are licensed, bonded, insured (TACLA28823C), and trained for rapid diagnostics and repair to restore comfort as quickly as possible.</p>
-
-<h3>Do you provide duct cleaning, sealing, and indoor air quality services in Corpus Christi, including air purifiers and ventilation assessments?</h3>
-<p>Yes. We offer indoor air quality services including air duct cleaning, air purifier installation, humidifier and dehumidifier installation, and comprehensive ventilation assessments (ERV/HRV systems). Our process begins with an IAQ evaluation to identify particulate, humidity, and ventilation issues, and we recommend and install solutions that integrate with existing HVAC and thermostat controls. These services are designed to improve comfort, reduce allergens, and optimize system performance.</p>
-
-<p>If you have additional questions or need immediate assistance, call or request service — our team is ready to help 24/7 and most repairs are completed the same day.</p>
-  </article>
-</body>
-</html>
