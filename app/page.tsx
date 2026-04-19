@@ -110,4 +110,4 @@ export default function Home() {
   )
 }
 
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69e5502c29e846304dd7d33f"></script>
+
