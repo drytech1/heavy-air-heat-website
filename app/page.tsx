@@ -9,7 +9,7 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
   
-  const toggleMute = () => {
+  function toggleMute() {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
       setIsMuted(!isMuted);
