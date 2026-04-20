@@ -107,8 +107,8 @@ export default function AboutPage() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: 'Michael Heavy', role: 'President & CEO', experience: '30+ years', bio: 'Second-generation owner continuing the family legacy of excellence.' },
-              { name: 'Sarah Johnson', role: 'Service Manager', experience: '25+ years', bio: 'Oversees all service operations and technician training.' },
+              { name: 'Roy Casas', role: 'President & CEO', experience: '30+ years', bio: 'Second-generation owner continuing the family legacy of excellence.' },
+              { name: 'Jasmine Casas', role: 'Office Manager', experience: '25+ years', bio: 'Oversees all service operations and technician training.' },
               { name: 'Robert Chen', role: 'Lead Technician', experience: '20+ years', bio: 'Specializes in commercial HVAC systems and complex installations.' },
             ].map((member, idx) => (
               <div key={idx} className="bg-white rounded-xl shadow-sm p-8 text-center">
