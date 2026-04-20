@@ -34,42 +34,48 @@ export default function Home() {
         </div>
       </div>
       
-      {/* Video Container with Mute Controls */}
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black group">
-            <video
-  className="w-full h-full object-cover"
-  playsInline
-  muted={isMuted}
-  loop
-  autoPlay
-  preload="metadata"
->
-  <source src="/videos/hero-video.mp4" type="video/mp4" />
-</video>
-            
-            {/* Mute/Unmute Button */}
-            <button
-              onClick={toggleMute}
-              className="absolute bottom-4 right-4 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-opacity opacity-0 group-hover:opacity-100"
-              aria-label={isMuted ? "Unmute video" : "Mute video"}
-            >
-              {isMuted ? (
-                <VolumeX className="h-6 w-6" />
-              ) : (
-                <Volume2 className="h-6 w-6" />
-              )}
-            </button>
-            
-            {/* Sound Indicator */}
-            {isMuted && (
-              <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
-                Sound Off - Click to Enable
+      {/* Video Container - FIXED */}
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+              <video
+                ref={videoRef}
+                className="w-full h-full object-cover"
+                playsInline
+                muted={isMuted}
+                loop
+                autoPlay
+                preload="metadata"
+              >
+                <source src="/videos/hero-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* ALWAYS VISIBLE Mute/Unmute Button */}
+              <button
+                onClick={toggleMute}
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition-all duration-200 flex items-center gap-2"
+                aria-label={isMuted ? "Unmute video" : "Mute video"}
+              >
+                {isMuted ? (
+                  <>
+                    <VolumeX className="h-5 w-5" />
+                    <span className="text-sm font-medium">Sound Off</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 className="h-5 w-5" />
+                    <span className="text-sm font-medium">Sound On</span>
+                  </>
+                )}
+              </button>
+              
+              {/* Sound Status Indicator */}
+              <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-medium">
+                {isMuted ? "Click 🔊 for Sound" : "Sound Enabled"}
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       {/* Features */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
