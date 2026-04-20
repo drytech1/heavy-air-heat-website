@@ -2,7 +2,7 @@
 
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
-import { Phone, CheckCircle, Shield, Clock, Wrench } from 'lucide-react';
+import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } from 'lucide-react';
 import { useRef, useState } from 'react';
 
 export default function Home() {
@@ -96,6 +96,66 @@ export default function Home() {
               <p className="text-gray-600">{item.desc}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Services Section */}
+      <div className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Our HVAC Services
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Professional HVAC services for residential and commercial clients throughout Corpus Christi and surrounding areas.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { 
+                icon: Thermometer, 
+                title: 'Heating Systems', 
+                desc: 'Professional installation, repair, and maintenance of furnaces, boilers, and heat pumps.',
+                features: ['Furnace Repair', 'Boiler Service', 'Heat Pump Systems']
+              },
+              { 
+                icon: Wind, 
+                title: 'Cooling Solutions', 
+                desc: 'Complete AC installation, maintenance, and repair services for hot Texas summers.',
+                features: ['AC Installation', 'Duct Cleaning', 'Preventive Maintenance']
+              },
+              { 
+                icon: Zap, 
+                title: 'Emergency Repair', 
+                desc: '24/7 emergency HVAC service with no overtime charges.',
+                features: ['Same-Day Service', 'Weekend Available', 'No Overtime Fees']
+              },
+            ].map((service, idx) => (
+              <div key={idx} className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                <div className="p-8">
+                  <div className="w-16 h-16 rounded-xl bg-primary-600 flex items-center justify-center mb-6">
+                    <service.icon className="h-8 w-8 text-white" />
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                  
+                  <p className="text-gray-600 mb-6">
+                    {service.desc}
+                  </p>
+                  
+                  <ul className="space-y-3">
+                    {service.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start text-gray-700">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
