@@ -46,48 +46,52 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Video Container with Mute Button */}
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
-              <video
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                playsInline
-                muted={isMuted}
-                loop
-                autoPlay
-                preload="metadata"
-              >
-                <source src="/videos/hero-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              
-              {/* Mute/Unmute Button */}
-              <button
-                onClick={toggleMute}
-                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full flex items-center gap-2"
-                aria-label={isMuted ? "Unmute video" : "Mute video"}
-              >
-                {isMuted ? (
-                  <>
-                    <VolumeX className="h-5 w-5" />
-                    <span className="text-sm font-medium">Sound Off</span>
-                  </>
-                ) : (
-                  <>
-                    <Volume2 className="h-5 w-5" />
-                    <span className="text-sm font-medium">Sound On</span>
-                  </>
-                )}
-              </button>
-              
-              {/* Sound Status Indicator */}
-              <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-medium">
-                {isMuted ? "Click 🔊 for Sound" : "Sound Enabled"}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            {/* Video Container with Fallback */}
+<div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+  <video
+    ref={videoRef}
+    className="w-full h-full object-cover"
+    playsInline
+    muted={isMuted}
+    loop
+    autoPlay
+    preload="metadata"
+    poster="/images/video-poster.jpg" // Optional: Add a poster image
+    onError={(e) => {
+      console.error("Video failed to load:", e);
+      // You could show an error message or fallback image here
+    }}
+  >
+    <source src="/videos/hero-video.mp4" type="video/mp4" />
+    <source src="/videos/hero-video.webm" type="video/webm" /> {/* Optional webm fallback */}
+    Your browser does not support the video tag.
+    {/* Fallback image if video fails */}
+    <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+      <p className="text-white text-lg">Video failed to load. Please check the file.</p>
+    </div>
+  </video>
+  
+  {/* Loading indicator */}
+  {!videoRef.current?.readyState && (
+    <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+      <div className="text-white">Loading video...</div>
+    </div>
+  )}
+  
+  {/* Mute/Unmute Button */}
+  <button
+    onClick={toggleMute}
+    className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full flex items-center gap-2"
+    aria-label={isMuted ? "Unmute video" : "Mute video"}
+  >
+    {isMuted ? '🔇 Unmute' : '🔊 Mute'}
+  </button>
+  
+  {/* Sound Status Indicator */}
+  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+    {isMuted ? 'Sound Off - Click to Enable' : 'Sound On'}
+  </div>
+</div>
 
       {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
