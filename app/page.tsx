@@ -10,11 +10,11 @@ export default function Home() {
       
       {/* Your existing homepage content starts here */}
      <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
       {/* Text Content */}
       <div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
           Heavy Air & Heat, Inc.
         </h1>
         <p className="text-xl md:text-2xl mb-8 opacity-90">
@@ -23,26 +23,28 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-4">
           <a
             href="tel:+13613348023"
-            className="bg-white text-primary-700 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg text-lg inline-flex items-center justify-center"
+            className="bg-white text-primary-700 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg inline-flex items-center justify-center"
           >
             <Phone className="h-6 w-6 mr-3" />
             24/7 Emergency: (361) 334-8023
           </a>
-          <button className="bg-accent-600 hover:bg-accent-700 text-white font-bold py-3 px-6 rounded-lg text-lg">
+          <button className="bg-accent-600 hover:bg-accent-700 text-white font-bold py-4 px-8 rounded-lg text-lg">
             Request Service
           </button>
         </div>
       </div>
       
-      {/* Video - Fixed Aspect Ratio */}
-      <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
-        <iframe
-          className="absolute top-0 left-0 w-full h-full"
-          src="https://www.youtube.com/embed/a1YZ0aHhPLU"
-          title="Heavy Air & Heat HVAC Services"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+      {/* Video Content */}
+      <div className="rounded-2xl overflow-hidden shadow-2xl">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-auto"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   </div>
