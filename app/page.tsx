@@ -49,14 +49,16 @@ export default function Home() {
             {/* Video Container */}
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
               <video
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                playsInline
-                muted={isMuted}
-                loop
-                autoPlay
-                preload="metadata"
-              >
+  className="w-full h-full object-cover"
+  playsInline
+  muted
+  loop
+  autoPlay
+  preload="metadata"
+  controls  {/* Add this line */}
+>
+  <source src="/videos/hero-video.mp4" type="video/mp4" />
+</video>
                 <source src="/videos/hero-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
