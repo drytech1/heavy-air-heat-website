@@ -37,12 +37,14 @@ export default function Home() {
       {/* YouTube Embed */}
       <div className="relative pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
         <iframe
-          className="absolute top-0 left-0 w-full h-full"
-          src="https://www.youtube.com/watch?v=a1YZ0aHhPLU?autoplay=1&mute=1&loop=1&playlist=a1YZ0aHhPLU&controls=0&modestbranding=1&rel=0"
-          title="Heavy Air & Heat HVAC Services"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+  width="100%"
+  height="100%"
+  src="https://www.youtube.com/embed/a1YZ0aHhPLU"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
       </div>
     </div>
   </div>
