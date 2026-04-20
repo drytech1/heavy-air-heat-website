@@ -3,20 +3,8 @@
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } from 'lucide-react'
-import { useRef, useState } from 'react'
 
 export default function Home() {
-  
-  const [isMuted, setIsMuted] = useState(true);
-  const [videoError, setVideoError] = useState<string | null>(null);
-  
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(!isMuted);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <Navigation />
@@ -47,49 +35,28 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Video Container */}
+            {/* Simple Video Container */}
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
-      <video
-        className="w-full h-full object-cover"
-        playsInline
-        muted
-        loop
-        autoPlay
-        preload="metadata"
-        onError={() => setVideoError("Video failed to load")}
-        onLoadedData={() => setVideoError(null)}
-      >
-         <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
-      
-      {/* Show error message */}
-      {videoError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/80 text-white p-8 text-center">
-          <div>
-            <div className="text-2xl mb-2">⚠️ Video Error</div>
-            <p className="mb-4">{videoError}</p>
-            <p className="text-sm opacity-75">Check browser console for details</p>
-          </div>
-        </div>
-      )}
-              
-              {/* Mute/Unmute Button */}
-              <button
-                onClick={toggleMute}
-                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full"
-                aria-label={isMuted ? "Unmute video" : "Mute video"}
+              <video
+                className="w-full h-full object-cover"
+                playsInline
+                muted
+                loop
+                autoPlay
+                preload="metadata"
               >
-                {isMuted ? '🔇 Unmute' : '🔊 Mute'}
-              </button>
+                <source src="/videos/hero-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
               
-              {/* Sound Status Indicator */}
+              {/* Sound Indicator */}
               <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
-                {isMuted ? 'Sound Off - Click to Enable' : 'Sound On'}
+                Sound Off
               </div>
             </div>
           </div>
         </div>
-      
+      </div>
 
       {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
