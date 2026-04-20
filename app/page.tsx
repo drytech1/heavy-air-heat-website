@@ -2,7 +2,7 @@
 
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
-import { Phone } from 'lucide-react';
+import { Phone, CheckCircle, Shield, Clock, Wrench } from 'lucide-react';
 import { useRef, useState } from 'react';
 
 export default function Home() {
@@ -76,6 +76,26 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-4 gap-8">
+          {[
+            { icon: Clock, title: '24/7 Service', desc: 'Emergency repairs anytime' },
+            { icon: Shield, title: 'Licensed & Insured', desc: 'Fully certified technicians' },
+            { icon: CheckCircle, title: 'Same-Day Service', desc: 'Most repairs completed same day' },
+            { icon: Wrench, title: '50+ Years Experience', desc: 'Family-owned since 1975' },
+          ].map((item, idx) => (
+            <div key={idx} className="text-center">
+              <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <item.icon className="h-8 w-8 text-primary-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
+              <p className="text-gray-600">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
 
