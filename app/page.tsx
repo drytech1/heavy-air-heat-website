@@ -6,7 +6,7 @@ import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } fro
 import { useRef, useState } from 'react'
 
 export default function Home() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  
   const [isMuted, setIsMuted] = useState(true);
   
   const toggleMute = () => {
