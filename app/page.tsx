@@ -8,7 +8,7 @@ import { useRef, useState } from 'react'
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
-
+  
   const toggleMute = () => {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
@@ -123,7 +123,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <div className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 font-semibold mb-4">
@@ -210,5 +210,36 @@ export default function Home() {
               <div className="text-left">
                 <h4 className="text-xl font-bold text-gray-900 mb-2">Service Area</h4>
                 <p className="text-gray-700">
-                  Serving Corpus Christi, P
-...(truncated)...
+                  Serving Corpus Christi, Portland, Aransas Pass, Rockport, and surrounding communities. 
+                  <span className="font-semibold text-primary-700"> Call for service in your area!</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-primary-700 text-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready for Reliable HVAC Service?</h2>
+          <p className="text-xl opacity-90 mb-8">
+            Schedule your service today and experience the Heavy Air & Heat difference.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+13613348023"
+              className="bg-white text-primary-700 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg"
+            >
+              Call Now: (361) 334-8023
+            </a>
+            <button className="bg-transparent border-2 border-white hover:bg-white/10 font-bold py-4 px-8 rounded-lg text-lg">
+              Get Free Estimate
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  )
+}
