@@ -14,7 +14,7 @@ export default function Home() {
       videoRef.current.muted = !videoRef.current.muted;
       setIsMuted(!isMuted);
     }
-  })
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
