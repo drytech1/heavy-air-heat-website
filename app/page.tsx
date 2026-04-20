@@ -3,8 +3,19 @@
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } from 'lucide-react'
+import { useRef, useState } from 'react'
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+  
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <Navigation />
@@ -35,12 +46,13 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Simple Video Container */}
+            {/* Video Container with Mute Button */}
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
               <video
+                ref={videoRef}
                 className="w-full h-full object-cover"
                 playsInline
-                muted
+                muted={isMuted}
                 loop
                 autoPlay
                 preload="metadata"
@@ -49,9 +61,18 @@ export default function Home() {
                 Your browser does not support the video tag.
               </video>
               
+              {/* Mute/Unmute Button */}
+              <button
+                onClick={toggleMute}
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full"
+                aria-label={isMuted ? "Unmute video" : "Mute video"}
+              >
+                {isMuted ? '🔇 Unmute' : '🔊 Mute'}
+              </button>
+              
               {/* Sound Indicator */}
               <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
-                Sound Off
+                {isMuted ? 'Sound Off - Click to Enable' : 'Sound On'}
               </div>
             </div>
           </div>
