@@ -38,7 +38,7 @@ export default function Home() {
       <div className="relative pt-[56.25%] rounded-2xl overflow-hidden shadow-2xl">
         <iframe
           className="absolute top-0 left-0 w-full h-full"
-          src="https://www.youtube.com/watch?v=a1YZ0aHhPLU?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID&controls=0&modestbranding=1&rel=0"
+          src="https://www.youtube.com/watch?v=a1YZ0aHhPLU?autoplay=1&mute=1&loop=1&playlist=a1YZ0aHhPLU&controls=0&modestbranding=1&rel=0"
           title="Heavy Air & Heat HVAC Services"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
