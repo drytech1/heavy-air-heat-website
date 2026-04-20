@@ -8,6 +8,7 @@ import { useRef, useState } from 'react'
 export default function Home() {
   
   const [isMuted, setIsMuted] = useState(true);
+  const [videoError, setVideoError] = useState<string | null>(null);
   
   const toggleMute = () => {
     if (videoRef.current) {
@@ -48,20 +49,29 @@ export default function Home() {
             
             {/* Video Container */}
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
-              <video
-  className="w-full h-full object-cover"
-  playsInline
-  muted
-  loop
-  autoPlay
-  preload="metadata"
-  controls  {/* Add this line */}
->
-  <source src="/videos/hero-video.mp4" type="video/mp4" />
-</video>
-                <source src="/videos/hero-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+      <video
+        className="w-full h-full object-cover"
+        playsInline
+        muted
+        loop
+        autoPlay
+        preload="metadata"
+        onError={() => setVideoError("Video failed to load")}
+        onLoadedData={() => setVideoError(null)}
+      >
+        <source src="/videos/hero-video.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Show error message */}
+      {videoError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/80 text-white p-8 text-center">
+          <div>
+            <div className="text-2xl mb-2">⚠️ Video Error</div>
+            <p className="mb-4">{videoError}</p>
+            <p className="text-sm opacity-75">Check browser console for details</p>
+          </div>
+        </div>
+      )}
               
               {/* Mute/Unmute Button */}
               <button
