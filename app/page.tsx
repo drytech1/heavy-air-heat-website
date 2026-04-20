@@ -1,40 +1,52 @@
+'use client';
+
 import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
-import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } from 'lucide-react'
+import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap, VolumeX, Volume2 } from 'lucide-react'
+import { useRef, useState } from 'react'
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+  
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Add Navigation Here */}
       <Navigation />
       
-      {/* Your existing homepage content starts here */}
-     <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div className="grid lg:grid-cols-2 gap-12 items-center">
-      {/* Text Content */}
-      <div>
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Heavy Air & Heat, Inc.
-        </h1>
-        <p className="text-xl md:text-2xl mb-8 opacity-90">
-          Commercial-Grade HVAC Solutions Since 1975
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <a
-            href="tel:+13613348023"
-            className="bg-white text-primary-700 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg inline-flex items-center justify-center"
-          >
-            <Phone className="h-6 w-6 mr-3" />
-            24/7 Emergency: (361) 334-8023
-          </a>
-          <button className="bg-accent-600 hover:bg-accent-700 text-white font-bold py-4 px-8 rounded-lg text-lg">
-            Request Service
-          </button>
-        </div>
-      </div>
-      
-      {/* Video Container - FIXED */}
+      {/* Hero Section with Video */}
+      <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Text Content */}
+            <div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Heavy Air & Heat, Inc.
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 opacity-90">
+                Commercial-Grade HVAC Solutions Since 1975
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="tel:+13613348023"
+                  className="bg-white text-primary-700 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg text-lg inline-flex items-center justify-center"
+                >
+                  <Phone className="h-6 w-6 mr-3" />
+                  24/7 Emergency: (361) 334-8023
+                </a>
+                <button className="bg-accent-600 hover:bg-accent-700 text-white font-bold py-3 px-6 rounded-lg text-lg">
+                  Request Service
+                </button>
+              </div>
+            </div>
+            
+            {/* Video Container with Mute Button */}
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
               <video
                 ref={videoRef}
@@ -49,10 +61,10 @@ export default function Home() {
                 Your browser does not support the video tag.
               </video>
               
-              {/* ALWAYS VISIBLE Mute/Unmute Button */}
+              {/* Mute/Unmute Button */}
               <button
                 onClick={toggleMute}
-                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition-all duration-200 flex items-center gap-2"
+                className="absolute bottom-4 right-4 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full flex items-center gap-2"
                 aria-label={isMuted ? "Unmute video" : "Mute video"}
               >
                 {isMuted ? (
@@ -77,7 +89,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Features */}
+      {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {[
@@ -97,7 +109,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Services */}
+      {/* Services Section */}
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
@@ -147,10 +159,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Add Footer at the bottom */}
       <Footer />
     </div>
   )
 }
-
-
