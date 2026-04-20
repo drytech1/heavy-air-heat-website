@@ -37,17 +37,15 @@ export default function Home() {
       {/* Video Container with Mute Controls */}
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black group">
             <video
-              ref={videoRef}
-              className="w-full h-full object-cover"
-              playsInline
-              muted={isMuted}
-              loop
-              autoPlay
-              preload="metadata"
-            >
-              <source src="/videos/hero-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+  className="w-full h-full object-cover"
+  playsInline
+  muted={isMuted}
+  loop
+  autoPlay
+  preload="metadata"
+>
+  <source src="/videos/hero-video.mp4" type="video/mp4" />
+</video>
             
             {/* Mute/Unmute Button */}
             <button
