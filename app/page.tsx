@@ -4,6 +4,7 @@ import Navigation from '@/components/layout/Navigation'
 import Footer from '@/components/layout/Footer'
 import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap } from 'lucide-react'
 import { useRef, useState } from 'react'
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -20,7 +21,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <Navigation />
       
-      {/* Enhanced Hero Section */}
+     {/* Enhanced Hero Section */}
 <div className="relative bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900 text-white overflow-hidden">
   {/* Background pattern */}
   <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%230c4a6e" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
@@ -104,10 +105,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
-        {/* Decorative elements */}
-        <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent-500 rounded-full opacity-20 blur-xl"></div>
-        <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary-500 rounded-full opacity-10 blur-xl"></div>
       </div>
     </div>
   </div>
@@ -133,34 +130,73 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Services Section */}
-      <div className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Our HVAC Services
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { icon: Thermometer, title: 'Heating Systems', color: 'from-red-500 to-orange-500' },
-              { icon: Wind, title: 'Cooling Solutions', color: 'from-blue-500 to-cyan-500' },
-              { icon: Zap, title: 'Emergency Repair', color: 'from-yellow-500 to-amber-500' },
-            ].map((service, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-lg p-8">
-                <div className={`w-14 h-14 rounded-lg bg-gradient-to-r ${service.color} flex items-center justify-center mb-6`}>
-                  <service.icon className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4">
-                  Professional installation, repair, and maintenance for all major brands.
-                </p>
-                <button className="text-primary-600 font-semibold hover:text-primary-700">
-                  Learn more →
-                </button>
-              </div>
-            ))}
+      {/* Enhanced Services Section */}
+<div className="py-20 bg-gradient-to-b from-white to-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 font-semibold mb-4">
+        Our Services
+      </div>
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Comprehensive <span className="text-primary-600">HVAC Solutions</span>
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        From emergency repairs to complete system installations, we provide professional HVAC services for residential and commercial clients.
+      </p>
+    </div>
+    
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        { 
+          icon: Thermometer, 
+          title: 'Heating Systems', 
+          desc: 'Furnace installation, repair, and maintenance for optimal winter comfort.',
+          color: 'from-red-500 to-orange-500',
+          features: ['Furnace Repair', 'Boiler Service', 'Heat Pump Installation']
+        },
+        { 
+          icon: Wind, 
+          title: 'Cooling Solutions', 
+          desc: 'AC installation, maintenance, and repair to keep you cool all summer.',
+          color: 'from-blue-500 to-cyan-500',
+          features: ['AC Installation', 'Duct Cleaning', 'Preventive Maintenance']
+        },
+        { 
+          icon: Zap, 
+          title: 'Emergency Repair', 
+          desc: '24/7 emergency service with no overtime charges.',
+          color: 'from-yellow-500 to-amber-500',
+          features: ['Same-Day Service', 'Weekend Available', 'No Overtime Fees']
+        },
+      ].map((service, idx) => (
+        <div key={idx} className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary-200">
+          <div className={`h-2 bg-gradient-to-r ${service.color}`}></div>
+          <div className="p-8">
+            <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
+              <service.icon className="h-8 w-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+            <p className="text-gray-600 mb-6">{service.desc}</p>
+            
+            <ul className="space-y-3 mb-8">
+              {service.features.map((feature, fIdx) => (
+                <li key={fIdx} className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            <button className="w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center group-hover:bg-primary-100">
+              Learn More
+              <ArrowRight className="h-5 w-5 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" />
+            </button>
           </div>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
 
       {/* CTA Section */}
       <div className="bg-primary-700 text-white py-16">
