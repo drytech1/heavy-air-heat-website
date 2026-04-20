@@ -59,7 +59,7 @@ export default function Home() {
         onError={() => setVideoError("Video failed to load")}
         onLoadedData={() => setVideoError(null)}
       >
-        <source src="/videos/hero-video.mp4" type="video/mp4" />
+         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
       
       {/* Show error message */}
