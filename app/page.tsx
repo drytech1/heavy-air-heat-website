@@ -1,14 +1,14 @@
 'use client';
 
-import Navigation from '@/components/layout/Navigation'
-import Footer from '@/components/layout/Footer'
-import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap, ArrowRight } from 'lucide-react'
-import { useRef, useState } from 'react'
+import Navigation from '@/components/layout/Navigation';
+import Footer from '@/components/layout/Footer';
+import { Phone, CheckCircle, Shield, Clock, Wrench, Thermometer, Wind, Zap, ArrowRight } from 'lucide-react';
+import { useRef, useState } from 'react';
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
-  
+
   function toggleMute() {
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
@@ -122,7 +122,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-
     <div className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -241,5 +240,5 @@ export default function Home() {
 
       <Footer />
     </div>
-  )
+  );
 }
