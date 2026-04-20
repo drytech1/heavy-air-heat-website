@@ -129,55 +129,113 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Services Section */}
-      <div className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Our HVAC Services
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { icon: Thermometer, title: 'Heating Systems', color: 'from-red-500 to-orange-500' },
-              { icon: Wind, title: 'Cooling Solutions', color: 'from-blue-500 to-cyan-500' },
-              { icon: Zap, title: 'Emergency Repair', color: 'from-yellow-500 to-amber-500' },
-            ].map((service, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-lg p-8">
-                <div className={`w-14 h-14 rounded-lg bg-gradient-to-r ${service.color} flex items-center justify-center mb-6`}>
-                  <service.icon className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4">
-                  Professional installation, repair, and maintenance for all major brands.
-                </p>
-                <button className="text-primary-600 font-semibold hover:text-primary-700">
-                  Learn more →
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
+     {/* Enhanced Services Section */}
+<div className="py-20 bg-gradient-to-b from-white to-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    <div className="text-center mb-16">
+      <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 text-primary-700 font-semibold mb-4">
+        Our Services
       </div>
-
-      {/* CTA Section */}
-      <div className="bg-primary-700 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready for Reliable HVAC Service?</h2>
-          <p className="text-xl opacity-90 mb-8">
-            Schedule your service today and experience the Heavy Air & Heat difference.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+13613348023"
-              className="bg-white text-primary-700 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg"
-            >
-              Call Now: (361) 334-8023
-            </a>
-            <button className="bg-transparent border-2 border-white hover:bg-white/10 font-bold py-4 px-8 rounded-lg text-lg">
-              Get Free Estimate
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Comprehensive <span className="text-primary-600">HVAC Solutions</span>
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        From emergency repairs to complete system installations, we provide professional HVAC services for residential and commercial clients throughout Corpus Christi and surrounding areas.
+      </p>
+    </div>
+    
+    {/* Services Grid */}
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        { 
+          icon: Thermometer, 
+          title: 'Heating Systems', 
+          desc: 'Professional installation, repair, and maintenance of furnaces, boilers, and heat pumps for optimal winter comfort.',
+          color: 'from-red-500 to-orange-500',
+          features: ['Furnace Repair & Installation', 'Boiler Service', 'Heat Pump Systems', 'Ductwork Installation'],
+          highlight: 'Keep warm all winter'
+        },
+        { 
+          icon: Wind, 
+          title: 'Cooling Solutions', 
+          desc: 'Complete AC installation, maintenance, and repair services to keep you cool and comfortable during hot Texas summers.',
+          color: 'from-blue-500 to-cyan-500',
+          features: ['AC Installation', 'Duct Cleaning & Sealing', 'Preventive Maintenance', 'System Upgrades'],
+          highlight: 'Beat the heat'
+        },
+        { 
+          icon: Zap, 
+          title: 'Emergency Repair', 
+          desc: '24/7 emergency HVAC service with no overtime charges. We respond quickly to get your system running again.',
+          color: 'from-yellow-500 to-amber-500',
+          features: ['Same-Day Service', 'Weekend & Holiday Available', 'No Overtime Fees', 'Diagnostic Services'],
+          highlight: '24/7 response'
+        },
+      ].map((service, idx) => (
+        <div key={idx} className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary-200 relative">
+          {/* Color accent bar */}
+          <div className={`h-1.5 bg-gradient-to-r ${service.color}`}></div>
+          
+          {/* Service card content */}
+          <div className="p-8">
+            {/* Icon with gradient background */}
+            <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+              <service.icon className="h-8 w-8 text-white" />
+            </div>
+            
+            {/* Title and highlight */}
+            <div className="mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium">
+                {service.highlight}
+              </div>
+            </div>
+            
+            {/* Description */}
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              {service.desc}
+            </p>
+            
+            {/* Features list */}
+            <ul className="space-y-3 mb-8">
+              {service.features.map((feature, fIdx) => (
+                <li key={fIdx} className="flex items-start text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            
+            {/* CTA Button */}
+            <button className="w-full bg-primary-50 hover:bg-primary-100 text-primary-700 font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center group-hover:bg-primary-100 group-hover:shadow-md">
+              Learn More
+              <ArrowRight className="h-5 w-5 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" />
             </button>
           </div>
+          
+          {/* Decorative corner */}
+          <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
+            <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.color} opacity-5 transform rotate-45 -translate-y-16 translate-x-8`}></div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    {/* Service Area Note */}
+    <div className="mt-16 text-center">
+      <div className="inline-flex items-center justify-center p-6 bg-gradient-to-r from-primary-50 to-primary-100 rounded-2xl max-w-3xl mx-auto">
+        <div className="text-left">
+          <h4 className="text-xl font-bold text-gray-900 mb-2">Service Area</h4>
+          <p className="text-gray-700">
+            Serving Corpus Christi, Portland, Aransas Pass, Rockport, and surrounding communities. 
+            <span className="font-semibold text-primary-700"> Call for service in your area!</span>
+          </p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
       <Footer />
     </div>
