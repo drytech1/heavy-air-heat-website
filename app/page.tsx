@@ -34,21 +34,44 @@ export default function Home() {
         </div>
       </div>
       
-      {/* Video Content */}
-      <div className="rounded-2xl overflow-hidden shadow-2xl">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-auto"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+      {/* Video Container with Mute Controls */}
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black group">
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              playsInline
+              muted={isMuted}
+              loop
+              autoPlay
+              preload="metadata"
+            >
+              <source src="/videos/hero-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            {/* Mute/Unmute Button */}
+            <button
+              onClick={toggleMute}
+              className="absolute bottom-4 right-4 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-opacity opacity-0 group-hover:opacity-100"
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+            >
+              {isMuted ? (
+                <VolumeX className="h-6 w-6" />
+              ) : (
+                <Volume2 className="h-6 w-6" />
+              )}
+            </button>
+            
+            {/* Sound Indicator */}
+            {isMuted && (
+              <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+                Sound Off - Click to Enable
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
       {/* Features */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
